@@ -1,0 +1,25 @@
+<script>
+    var usuarios = [];
+
+    do{
+        var nome = prompt('Digite o nome do usuario:');
+        var idade = prompt('Digite a idade do usuario:');
+        var continuar = prompt('Deseja continuar?');
+
+        usuarios.push({nome: nome, idade: idade});
+    } while(continuar.toUpperCase() == 'sim'.toUpperCase());
+
+    var usuarioMaior = usuarios.filter(p => p.idade >= 18);
+    var usuarioMenor = usuarios.filter(p => p.idade < 18);
+
+    if(usuarioMaior != undefined && usuarioMaior.length > 0) {
+        document.writeln('Usuarios maior de idade:<br/>');
+        usuarioMaior.forEach(item => document.writeln(`${item.nome} - ${item.idade}<br/>`));
+    }
+
+    if(usuarioMenor != undefined && usuarioMenor.length > 0) {
+        document.writeln('Usuarios menor de idade:<br/>');
+        usuarioMenor.forEach(item => document.writeln(`${item.nome} - ${item.idade}<br/>`));
+    }
+    
+</script>
